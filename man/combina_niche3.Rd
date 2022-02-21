@@ -2,27 +2,31 @@
 % Please edit documentation in R/combina_niche3.R
 \name{combina_niche3}
 \alias{combina_niche3}
-\title{Estimate the degree of niche overlapping among species from their chromatograms}
+\title{Estimate the degree of niche overlapping among species from their chromatograms.}
 \usage{
 combina_niche3(sp_chr, T)
 }
 \arguments{
-\item{sp_chr}{a matrix with the species chromatograms (categories by environmental variables by species). Outputs of 'chromato_env16.R'}
+\item{sp_chr}{a matrix with the species chromatograms (alpha categories by p-environmental variables by species). Outputs of 'chromato_env16.R'}
 
 \item{T}{an integer corresponding to the threshold of minimal abundance in a category for niche breadth estimation}
 }
 \value{
-results1 a matrix with the mean degree of niche overlapping. The first column displays the number of dimensions
-considered simultaneously, columns 2 to 10 display the combinations of dimensions.
-The last column displays index D associated with the combination of environmental dimensions.
+Return a list composed of three matrices:
+
+combi_dim, which contains the mean degree of niche overlapping. In combi_dim, the first column displays the number of dimensions
+considered simultaneously and the last column displays the index D associated with the combination of dimensions.
+Columns between the first and the last display the combinations of dimensions considered.
+
+sp_by_sp, a matrix with the degree of niche overlapping (index D) species by species when all the dimensions are considered.
+
+dim_alone, a vector with the mean degree of niche overlapping (index D) when each dimension is considered alone.
+
 D=0 when species niches are fully different and D=100 when species niches are identical;
 the higher the number of dimensions, the lower the value of index D.
-Only the combinations of environmental variables that minimise values of index D are displayed.
-
-results2 a vector with the mean degree of niche overlapping when each dimension is considered alone.
-
-y2 a matrix with the degree of niche overlapping species by species when all the dimensions are considered.
 }
 \description{
-Estimate the degree of niche overlapping among species from their chromatograms
+Function that returns the lowest degree of niche overlapping (index D) among all the species when 1 to p environmental variables
+are considered. Also return the degree of niche overlapping (index D) among each couple of species when all the environmental
+variables are considered simultaneously and the lowest degree of niche overlapping (index D) when each environmental variable is considered alone.
 }

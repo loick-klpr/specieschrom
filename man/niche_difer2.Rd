@@ -2,8 +2,7 @@
 % Please edit documentation in R/niche_difer2.R
 \name{niche_difer2}
 \alias{niche_difer2}
-\title{Nested function for niche overlapping estimations with 'combina_niche3.R' and 'niche_differ_sp.R'
-Columns in spe_chr1 and sp_chr2 have to be the same}
+\title{Nested function for niche overlapping estimation with 'combina_niche3.R' and 'niche_differ_sp.R'.}
 \usage{
 niche_difer2(sp_chr1, sp_chr2, T)
 }
@@ -18,6 +17,6 @@ niche_difer2(sp_chr1, sp_chr2, T)
 index D
 }
 \description{
-Nested function for niche overlapping estimations with 'combina_niche3.R' and 'niche_differ_sp.R'
-Columns in spe_chr1 and sp_chr2 have to be the same
+Estimate the niche overlapping (index D) between two species. Assume that the niche is rectangular.
+Columns (i.e. environmental variables) in 'spe_chr1' and 'sp_chr2' have to be the same.
 }

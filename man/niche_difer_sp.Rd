@@ -2,12 +2,12 @@
 % Please edit documentation in R/niche_difer_sp.R
 \name{niche_difer_sp}
 \alias{niche_difer_sp}
-\title{Nested function for niche overlapping estimations with 'combina_niche3.R'}
+\title{Nested function for niche overlapping estimation with 'combina_niche3.R'.}
 \usage{
 niche_difer_sp(sp_chr, T)
 }
 \arguments{
-\item{sp_chr}{a three dimensional matrices with the species chromatograms (alpha category by p environmental variables by species)}
+\item{sp_chr}{a three dimensional matrix with the species chromatograms (alpha category by p environmental variables by species)}
 
 \item{T}{an integer corresponding to the threshold of minimal abundance in a category for the niche breadth estimation}
 }
@@ -15,5 +15,5 @@ niche_difer_sp(sp_chr, T)
 index D
 }
 \description{
-Nested function for niche overlapping estimations with 'combina_niche3.R'
+Select the couple of species for niche overlapping (index D) estimation.
 }

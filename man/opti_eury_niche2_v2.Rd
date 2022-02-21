@@ -2,7 +2,7 @@
 % Please edit documentation in R/opti_eury_niche2_v2.R
 \name{opti_eury_niche2_v2}
 \alias{opti_eury_niche2_v2}
-\title{Optimums and amplitudes estimations along each niche dimension}
+\title{Optimums and amplitudes estimations along each niche dimension.}
 \usage{
 opti_eury_niche2_v2(sp_chr, T, z, y, k)
 }
@@ -11,19 +11,21 @@ opti_eury_niche2_v2(sp_chr, T, z, y, k)
 
 \item{T}{an integer corresponding to the min abundance threshold for niche amplitudes estimations}
 
-\item{z}{a matrix with n samples by p environmental variables (i.e. the value of each environmental varibale in each sample)}
+\item{z}{a matrix with n samples by p environmental variables (i.e. the value of each environmental variable in each sample). Same matrix as in 'chromato_env16.R'.}
 
 \item{y}{a matrix with the species abundance in the n samples}
 
-\item{k}{an integer corresponding to the percentage of samples with the highest abundance values to use to estimate the mean abundance in a given category}
+\item{k}{an integer corresponding to the percentage of samples with the highest abundance values to use to estimate the mean abundance in a given category. Should have the same value as in 'chromato_env16.R'}
 }
 \value{
-deg_eury a matrix with the degree of euryecie (niche breadth) for each species along each environmental dimensions (matrix environmental variable by species)
+Three matrices are returned:
 
-mean_deg_eury a matrix with the mean degree of euryecie of each species
+amplitudes, a matrix with the degree of euryoecie (niche breadth) of each species (in column) along each environmental dimension (in line)
 
-opti_val a matrix with the niche optimum values (matrix environmental variables by species)
+mean_amplitudes, a matrix with the mean degree of euryecie of each species
+
+optimums, a matrix with the niche optimum values of each species (in column) along each environmental dimension (in line)
 }
 \description{
-Optimums and amplitudes estimations along each niche dimension
+Function that estimates niche optimums and amplitudes along each environmental variable and for each species.
 }

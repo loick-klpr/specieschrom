@@ -2,8 +2,7 @@
 % Please edit documentation in R/nanmean4.R
 \name{nanmean4}
 \alias{nanmean4}
-\title{Mean of the n highest values of a vector
-Estimates the mean of the n\% of the samples in x with the highest abundance}
+\title{Mean of the n highest values of a vector.}
 \usage{
 nanmean4(x, n)
 }
@@ -13,9 +12,8 @@ nanmean4(x, n)
 \item{n}{an integer corresponding to the percentage of values to use}
 }
 \value{
-mean of the n\% of the samples in x with the highest values
+mean of the n\% highest values in vector x
 }
 \description{
-Mean of the n highest values of a vector
-Estimates the mean of the n\% of the samples in x with the highest abundance
+Estimates the mean of the n\% highest values in vector x.
 }

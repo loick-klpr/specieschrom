@@ -9,14 +9,19 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-In this document, we describe how to use the R package `specieschrom` available on Github. The species chromatogram method only uses three main functions : `chromato_env16.R`, `opti_eury_niche2_v2.R` and `combina_niche3.R`. The following packages are required: `abind`, `colorRamps`, `ggplot2` and `reshape2`. Noted that the same procedure is applicable with Matlab.
+In this document, we describe how to use the R package `specieschrom` available on Github. The species chromatogram method only uses three main functions : `chromato_env16.R`, `opti_eury_niche2_v2.R` and `combina_niche3.R`. The following packages are required: `abind`, `colorRamps`, `ggplot2`, `reshape2` and `utils`. Noted that the same procedure is applicable with Matlab (functions are also available on Github).
+
+The package can be installed from Github with the `devtools` package:
+```{}
+devtools::install_github("loick-klpr/specieschrom")
+```
 
 ### Function `chromato_env16.R`
 The function `chromato_env16.R` estimates and displays the chromatogram of a given species. This function takes six arguments in the following order:
 ```{}
 chromato_env16(z,y,alpha,m,k,order_smth)
 ```
-With `z` a matrix with n samples by p environmental variables (i.e. the value of each environmental variable in each sample), `y` a vector with the abundance of a species in the n samples, `alpha` an integer corresponding to the number of category along each environmental variable, `m` an integer corresponding to the lowest number of samples needed in a category in order to have an estimation of the mean abundance, `k` an integer corresponding to the percentage of samples with the highest abundance values to use to estimate the mean abundance in a given category and `order_smth` an integer corresponding to the order of the simple moving average applied along each niche dimension. 
+With `z` a matrix with n samples by p environmental variables (i.e. the value of each environmental variable in each sample), `y` a vector with the abundance of a species in the n samples, `alpha` an integer corresponding to the number of category along each environmental variable, `m` an integer corresponding to the lowest number of samples needed in a category in order to have an estimation of the mean abundance, `k` an integer corresponding to the percentage of samples with the highest abundance values to use to estimate the mean abundance in a given category and `order_smth` an integer corresponding to the order of the simple moving average applied along each niche dimension. The simple moving average is applied to reduce the noise in the mean abundance sometimes observed in the chromatograms from a category to another.
 
 `chromato_env16.R` used the functions `nanmean4.R`, which estimates the mean of the `k`% of the samples with the highest abundance and `moymob1.R` which applies the moving average.
 
@@ -29,9 +34,9 @@ library(specieschrom)
 data("data_abundance")
 data("environment")
 ```
-The `abundance` dataset contains the abundance of 14 pseudo-species (columns PS1 to PS14) in 100 samples (lines). Pseudo-species were generated with a beta-niche. The `environment` dataset contains the values of three fictive environmental variables (columns x1 to x3) in the 100 samples (lines). 
+The `abundance` dataset contains the abundance of 14 pseudo-species (columns PS1 to PS14) in 100 samples (lines). Pseudo-species were generated with a beta-niche. Noted that each pseudo-species has been duplicated (2 x 7 pseudo-species). The `environment` dataset contains the values of three fictive environmental variables (columns x1 to x3) in the 100 samples (lines). 
 
-Apply the function `chromato_env16.R` on the first pseudo-species to display its three dimensional niche:
+Apply the function `chromato_env16.R` on the first pseudo-species to display its three dimensional niche. Here we used `alpha`=50 categories, `m`=1 sample at least in each category, `k`=5 and `order_smth`=2 :
 ```{r}
 sp_chrom_PS1<-chromato_env16(environment,data_abundance[,1],50,1,5,2)
 ```
@@ -66,25 +71,23 @@ library(abind)
 test_PS<-abind::abind(sp_chrom_PS1,sp_chrom_PS3,sp_chrom_PS5,sp_chrom_PS8,along=3)
 ```
 
-The function `opti_eury_niche2.R` can then be applied:
+The function `opti_eury_niche2.R` can then be applied, with a threshold of abundance `T`=0 and `k`=5 (as in `chromato_env16.R`:
 ```{r}
 opti_ampli_niche<-opti_eury_niche2_v2(test_PS,0,environment,data_abundance[,c(1,3,5,8)],5)
 
 ```
 
-The degree of euryoecy (i.e. niche breadth) of each pseudo-species along each dimension are stored in `opti_ampli_niche$amplitude`, a table with in line the p environmental variables (here three) and in column the pseudo-species (here four, i.e. 1=PS1, 2=PS3, 3=PS5 and 4=PS8):
+The degree of euryoecy (i.e. niche breadth) of each pseudo-species along each dimension are stored in `opti_ampli_niche$amplitudes`, a table with in line the p environmental variables (here three) and in column the pseudo-species (here four, i.e. 1=PS1, 2=PS3, 3=PS5 and 4=PS8):
 ```{r}
-opti_ampli_niche$amplitude
-
+opti_ampli_niche$amplitudes
 ```
 
-Mean degree of euryoecy of each species is stored in `opti_ampli_niche$mean_amplitude`:
+The mean degree of euryoecy of each pseudo-species is stored in `opti_ampli_niche$mean_amplitudes`:
 ```{r}
-opti_ampli_niche$mean_amplitude
-
+opti_ampli_niche$mean_amplitudes
 ```
 
-Niche optimums for each species (i.e. four, in colum) along each niche dimension (i.e. three, in line) are stored in `opti_ampli_niche$optimums`:
+The niche optimums for each species (i.e. four, in column) along each niche dimension (i.e. three, in line) are stored in `opti_ampli_niche$optimums`:
 ```{r}
 opti_ampli_niche$optimums
 
@@ -92,7 +95,7 @@ opti_ampli_niche$optimums
 
 ### Function `combina_niche3.R`
 
-The function `combina_niche3.R` estimates the index of niche overlapping (D) among species niche. It returns three matrices: `combi_dim` which contains the combination of environmental variables associated with the lowest degree a niche overlapping when considering 1 to p dimensions, `sp_by_sp` which contains the degree of niche overlapping species by species when all the environmental variable are considered and `dim_alone` which contains the lowest degree of niche overlapping when each environmental variable is considered alone. This function takes two arguments in the following order : 
+The function `combina_niche3.R` estimates the index of niche overlapping (D) among species niche. It returns three matrices: `combi_dim` which contains the combination of environmental variables associated with the lowest degree a niche overlapping when 1 to p environmental dimensions are considered, `sp_by_sp` which contains the degree of niche overlapping species by species when all the environmental variables are considered and `dim_alone` which contains the lowest degree of niche overlapping when each environmental variable is considered alone. This function takes two arguments in the following order : 
 ```{}
 combina_niche3(sp_chr,T)
 ```
@@ -107,7 +110,7 @@ Apply the function on the previous three-dimensional matrix `test_PS`:
 Index_D_PS<-combina_niche3(test_PS,0)
 ```
 
-In `combi_dim` the first column displays the number of dimensions considered simultaneously, columns 2 to 4 display the combinations of dimensions. The last column displays index D associated with the combination of environmental dimensions. D=0% when species niches are fully different and D=100% when species niches are identical; the higher the number of dimensions, the lower the value of index D. Only the combinations of environmental variables that minimise values of index D are displayed :
+In `combi_dim` the first column displays the number of dimensions considered simultaneously and columns 2 to 4 display the combinations of dimensions considered. The last column displays the index D associated with the combination of environmental dimensions. D=0% when species niches are fully different and D=100% when species niches are identical; the higher the number of dimensions, the lower the value of index D. Only the combinations of environmental variables that minimise values of index D are displayed :
 ```{r}
 Index_D_PS$combi_dim
 ```

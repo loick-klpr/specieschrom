@@ -2,12 +2,12 @@
 % Please edit documentation in R/moymob1.R
 \name{moymob1}
 \alias{moymob1}
-\title{m order simple moving average}
+\title{m order simple moving average.}
 \usage{
 moymob1(x, m)
 }
 \arguments{
-\item{x}{a matrix with in lines the observations and in column the variables}
+\item{x}{a matrix with in line the observations and in column the variables}
 
 \item{m}{an integer corresponding to the window size (2m+1)}
 }
@@ -15,5 +15,5 @@ moymob1(x, m)
 smoothed matrix
 }
 \description{
-m order simple moving average
+Apply a m order simple moving average on each column of a matrix.
 }
