@@ -1,6 +1,8 @@
-#' Nested function for niche overlapping estimations with 'combina_niche3.R'
+#' Nested function for niche overlapping estimation with 'combina_niche3.R'.
 #'
-#' @param sp_chr a three dimensional matrices with the species chromatograms (alpha category by p environmental variables by species)
+#' @description Select the couple of species for niche overlapping (index D) estimation.
+#'
+#' @param sp_chr a three dimensional matrix with the species chromatograms (alpha category by p environmental variables by species)
 #' @param T an integer corresponding to the threshold of minimal abundance in a category for the niche breadth estimation
 #'
 #' @return index D

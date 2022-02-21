@@ -1,5 +1,7 @@
-#' Nested function for niche overlapping estimations with 'combina_niche3.R' and 'niche_differ_sp.R'
-#' Columns in spe_chr1 and sp_chr2 have to be the same
+#' Nested function for niche overlapping estimation with 'combina_niche3.R' and 'niche_differ_sp.R'.
+#'
+#' @description Estimate the niche overlapping (index D) between two species. Assume that the niche is rectangular.
+#' Columns (i.e. environmental variables) in 'spe_chr1' and 'sp_chr2' have to be the same.
 #'
 #' @param sp_chr1 a matrix (niche categories by environmental variables) for species 1
 #' @param sp_chr2 a matrix (niche categories by environmental variables) for species 2

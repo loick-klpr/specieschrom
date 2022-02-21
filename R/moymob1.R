@@ -1,6 +1,8 @@
-#' m order simple moving average
+#' m order simple moving average.
 #'
-#' @param x a matrix with in lines the observations and in column the variables
+#' @description Apply a m order simple moving average on each column of a matrix.
+#'
+#' @param x a matrix with in line the observations and in column the variables
 #' @param m an integer corresponding to the window size (2m+1)
 #'
 #' @return smoothed matrix

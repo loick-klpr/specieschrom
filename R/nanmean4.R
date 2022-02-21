@@ -1,10 +1,11 @@
-#' Mean of the n highest values of a vector
-#' Estimates the mean of the n% of the samples in x with the highest abundance
+#' Mean of the n highest values of a vector.
+#'
+#' @description Estimates the mean of the n% highest values in vector x.
 #'
 #' @param x a vector with the values to average
 #' @param n an integer corresponding to the percentage of values to use
 #'
-#' @return mean of the n% of the samples in x with the highest values
+#' @return mean of the n% highest values in vector x
 #' @export
 
 nanmean4<-function(x,n){

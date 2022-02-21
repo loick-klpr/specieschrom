@@ -1,5 +1,4 @@
-#' Estimate and display the species chromatogram
-#' Main function to display the multidimensional ecological niche of a species
+#' Display the multidimensional ecological niche of a species with a species chromatogram
 #'
 #' @param z a matrix with n samples by p environmental variables (i.e. the value of each environmental varibale in each sample)
 #' @param y a vector with the abundance of a species in the n samples

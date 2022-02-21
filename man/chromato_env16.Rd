@@ -2,13 +2,12 @@
 % Please edit documentation in R/chromato_env16.R
 \name{chromato_env16}
 \alias{chromato_env16}
-\title{Estimate and display the species chromatogram
-Main function to display the multidimensional ecological niche of a species}
+\title{Display the multidimensional ecological niche of a species with a species chromatogram.}
 \usage{
 chromato_env16(z, y, alpha, m, k, order_smth)
 }
 \arguments{
-\item{z}{a matrix with n samples by p environmental variables (i.e. the value of each environmental varibale in each sample)}
+\item{z}{a matrix with n samples by p environmental variables (i.e. the value of each environmental variable in each sample)}
 
 \item{y}{a vector with the abundance of a species in the n samples}
 
@@ -16,7 +15,7 @@ chromato_env16(z, y, alpha, m, k, order_smth)
 
 \item{m}{an integer corresponding to the lowest number of samples needed in a category in order to have an estimation of the mean abundance}
 
-\item{k}{an integer corresponding to the percentage of samples with the highest abundance values to use to estimate the mean abundance in a given category}
+\item{k}{an integer corresponding to the percentage of samples with the highest abundance use to estimate the mean abundance of a species in a given category}
 
 \item{order_smth}{an integer corresponding the order of the simple moving average applied along each niche dimension}
 }
@@ -24,6 +23,5 @@ chromato_env16(z, y, alpha, m, k, order_smth)
 chr2 a matrix corresponding to the species chromatogram (alpha categories by p environmental variables)
 }
 \description{
-Estimate and display the species chromatogram
-Main function to display the multidimensional ecological niche of a species
+Display the multidimensional ecological niche of a species as an array of coloured cells (alpha categories by p environmental variables).
 }

@@ -10,7 +10,7 @@ Authors@R: c(person("Loick", "Kleparski",
   role = "aut",
   comment = c(ORCID = "https://orcid.org/0000-0002-0712-5223")))
 Maintainer: Loïck Kléparski <loick.kleparski@hotmail.fr>
-Description: R package to display and characterise the multidimensional ecological niche of a species. The method also estimates the optimums and amplitude along each niche dimension. Give also an estimation of the degree of niche overlapping between species. 
+Description: R package to display and characterise the multidimensional ecological niche of a species. The method also estimates the optimums and amplitudes along each niche dimension. Give also an estimation of the degree of niche overlapping between species. 
 License: GPL-3
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)

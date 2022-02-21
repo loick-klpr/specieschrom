@@ -1,14 +1,17 @@
-#' Optimums and amplitudes estimations along each niche dimension
+#' Optimums and amplitudes estimations along each niche dimension.
+#'
+#' @description Function that estimates niche optimums and amplitudes along each environmental variable and for each species.
 #'
 #' @param sp_chr a matrix with the species chromatograms (categories by environmental variables by species). Outputs of 'chromato_env16.R'
 #' @param T an integer corresponding to the min abundance threshold for niche amplitudes estimations
-#' @param z a matrix with n samples by p environmental variables (i.e. the value of each environmental varibale in each sample)
+#' @param z a matrix with n samples by p environmental variables (i.e. the value of each environmental variable in each sample). Same matrix as in 'chromato_env16.R'.
 #' @param y a matrix with the species abundance in the n samples
-#' @param k an integer corresponding to the percentage of samples with the highest abundance values to use to estimate the mean abundance in a given category
+#' @param k an integer corresponding to the percentage of samples with the highest abundance values to use to estimate the mean abundance in a given category. Should have the same value as in 'chromato_env16.R'
 #'
-#' @return deg_eury a matrix with the degree of euryecie (niche breadth) for each species along each environmental dimensions (matrix environmental variable by species)
-#' @return mean_deg_eury a matrix with the mean degree of euryecie of each species
-#' @return opti_val a matrix with the niche optimum values (matrix environmental variables by species)
+#' @return Three matrices are returned:
+#' @return amplitudes, a matrix with the degree of euryoecie (niche breadth) of each species (in column) along each environmental dimension (in line)
+#' @return mean_amplitudes, a matrix with the mean degree of euryecie of each species
+#' @return optimums, a matrix with the niche optimum values of each species (in column) along each environmental dimension (in line)
 #' @export
 
 opti_eury_niche2_v2<-function(sp_chr,T,z,y,k){
@@ -70,6 +73,6 @@ opti_eury_niche2_v2<-function(sp_chr,T,z,y,k){
   }
 
   opti_ampli_niche<-list(opti_val,deg_eury,mean_deg_eury)
-  names(opti_ampli_niche)<-c('optimums','amplitude','mean_amplitude')
+  names(opti_ampli_niche)<-c('optimums','amplitudes','mean_amplitudes')
   return(opti_ampli_niche)
 }
