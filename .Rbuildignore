@@ -1,0 +1,4 @@
+^renv$
+^renv\.lock$
+^specieschrom\.Rproj$
+^\.Rproj\.user$
