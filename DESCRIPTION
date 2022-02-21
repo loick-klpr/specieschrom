@@ -28,3 +28,5 @@ VignetteBuilder: knitr
 Depends: 
     R (>= 2.10)
 LazyData: true
+URL: https://github.com/loick-klpr/specieschrom
+BugReports: https://github.com/loick-klpr/specieschrom/issues
