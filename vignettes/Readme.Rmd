@@ -1,15 +1,15 @@
 ---
-title: "The species chromatogram"
+title: "specieschrom"
 author: Loïck Kléparski and Grégory Beaugrand
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{The species chromatogram}
+  %\VignetteIndexEntry{specieschrom}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
 
-In this document, we describe how to use the R package `specieschrom` available on Github. Only three main functions are used : `chromato_env16.R`, `opti_eury_niche2_v2.R` and `combina_niche3.R`. The following packages are required: `abind`, `colorRamps`, `ggplot2` and `reshape2`. Noted that the same procedure is applicable with Matlab.
+In this document, we describe how to use the R package `specieschrom` available on Github. The species chromatogram method only uses three main functions : `chromato_env16.R`, `opti_eury_niche2_v2.R` and `combina_niche3.R`. The following packages are required: `abind`, `colorRamps`, `ggplot2` and `reshape2`. Noted that the same procedure is applicable with Matlab.
 
 ### Function `chromato_env16.R`
 The function `chromato_env16.R` estimates and displays the chromatogram of a given species. This function takes six arguments in the following order:
