@@ -1,0 +1,30 @@
+#' Nested function for niche overlapping estimations with 'combina_niche3.R'
+#'
+#' @param sp_chr a three dimensional matrices with the species chromatograms (alpha category by p environmental variables by species)
+#' @param T an integer corresponding to the threshold of minimal abundance in a category for the niche breadth estimation
+#'
+#' @return index D
+#' @export
+
+niche_difer_sp<-function(sp_chr,T){
+
+  n<-dim(sp_chr)
+  y2<-matrix(nrow = n[length(n)],ncol = n[length(n)])
+
+  if (length(n)==2) {
+    for (i in 1:(n[length(n)]-1)) {
+      for (j in ((i+1):n[length(n)])) {
+        y2[i,j]<-niche_difer2(as.matrix(sp_chr[,i]),as.matrix(sp_chr[,j]),T)
+      }
+    }
+
+  }else{
+    for (i in 1:(n[length(n)]-1)) {
+      for (j in ((i+1):n[length(n)])) {
+        y2[i,j]<-niche_difer2(as.matrix(sp_chr[,,i]),as.matrix(sp_chr[,,j]),T)
+      }
+    }
+  }
+
+  return(y2)
+}
