@@ -14,7 +14,7 @@
 #' @return optimums, a matrix with the niche optimum values of each species (in column) along each environmental dimension (in line)
 #' @export
 
-opti_eury_niche2_v2<-function(sp_chr,T,z,y,k){
+opti_eury_niche2<-function(sp_chr,T,z,y,k){
   n<-dim(sp_chr)
   deg_eury=matrix(nrow = n[2],ncol = n[3])
   opti_val=matrix(nrow = n[2],ncol = n[3])

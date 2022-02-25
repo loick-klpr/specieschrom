@@ -56,8 +56,8 @@ With the eighth pseudo-species:
 sp_chrom_PS8<-chromato_env16(environment,data_abundance[,8],50,1,5,2)
 ```
 
-### Function `opti_eury_niche2_v2.R`
-The function `opti_eury_niche2_v2.R` estimates the niche optimums and breadths of each species along each niche dimension, i.e. each environmental variable. The mean niche breadth is also estimated. This function takes six arguments in the following order : 
+### Function `opti_eury_niche2.R`
+The function `opti_eury_niche2.R` estimates the niche optimums and breadths of each species along each niche dimension, i.e. each environmental variable. The mean niche breadth is also estimated. This function takes six arguments in the following order : 
 ```{}
 opti_eury_niche2(sp_chr,T,z,y,k)
 ```
@@ -73,7 +73,7 @@ test_PS<-abind::abind(sp_chrom_PS1,sp_chrom_PS3,sp_chrom_PS5,sp_chrom_PS8,along=
 
 The function `opti_eury_niche2.R` can then be applied, with a threshold of abundance `T`=0 and `k`=5 (as in `chromato_env16.R`:
 ```{r}
-opti_ampli_niche<-opti_eury_niche2_v2(test_PS,0,environment,data_abundance[,c(1,3,5,8)],5)
+opti_ampli_niche<-opti_eury_niche2(test_PS,0,environment,data_abundance[,c(1,3,5,8)],5)
 
 ```
 
