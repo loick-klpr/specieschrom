@@ -1,6 +1,6 @@
 Package: specieschrom
 Title: The Species Chromatogram, a New Graphical Method to Represent, Characterise and Compare the Ecological Niches of Different Species
-Version: 0.0.0.9000
+Version: 1.0.0
 Authors@R: c(person("Loick", "Kleparski",
   email = "loick.kleparski@hotmail.fr",
   role = c("aut", "cre"),
