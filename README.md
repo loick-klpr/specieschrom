@@ -1,14 +1,3 @@
----
-title: "specieschrom"
-author: Loïck Kléparski and Grégory Beaugrand
-date: "`r Sys.Date()`"
-output: rmarkdown::html_vignette
-vignette: >
-  %\VignetteIndexEntry{specieschrom}
-  %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
----
-
 In this document, we describe how to use the R package `specieschrom` available on Github. The species chromatogram method only uses three main functions : `chromato_env16.R`, `opti_eury_niche2_v2.R` and `combina_niche3.R`. The following packages are required: `abind`, `colorRamps`, `ggplot2`, `reshape2` and `utils`. Noted that the same procedure is applicable with Matlab (functions are also available on Github).
 
 The package can be installed from Github with the `devtools` package:
