@@ -29,3 +29,17 @@ optimums, a matrix with the niche optimum values of each species (in column) alo
 \description{
 Function that estimates niche optimums and amplitudes along each environmental variable and for each species.
 }
+\examples{
+# Load the example datasets
+data("data_abundance")
+data("environment")
+# Characterise and display the ecological niche of 2 pseudo-species
+# `alpha`=50 categories, `m`=1 sample, `k`=5 and `order_smth`=2
+sp_chrom_PS3<-chromato_env16(environment,data_abundance[,3],50,1,5,2)
+sp_chrom_PS8<-chromato_env16(environment,data_abundance[,8],50,1,5,2)
+# Combine the species chromatograms along a third dimension with `abind`
+library(abind)
+test_PS<-abind::abind(sp_chrom_PS3,sp_chrom_PS8,along=3)
+# `opti_eury_niche2.R` can then be applied, with `Thres_T`=0 and `k`=5
+opti_ampli_niche<-opti_eury_niche2(test_PS,0,environment,data_abundance[,c(3,8)],5)
+}

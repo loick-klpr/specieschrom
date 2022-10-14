@@ -2,8 +2,4 @@
 
 export(chromato_env16)
 export(combina_niche3)
-export(moymob1)
-export(nanmean4)
-export(niche_difer2)
-export(niche_difer_sp)
 export(opti_eury_niche2)

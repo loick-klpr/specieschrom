@@ -6,8 +6,6 @@
 #' @param n an integer corresponding to the percentage of values to use
 #'
 #' @return mean of the n% highest values in vector x
-#'
-#' @export
 
 nanmean4<-function(x,n){
   p<-length(x)

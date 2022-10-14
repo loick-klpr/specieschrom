@@ -6,7 +6,6 @@
 #' @param m an integer corresponding to the window size (2m+1)
 #'
 #' @return smoothed matrix
-#' @export
 
 moymob1<-function(x,m){
   n<-length(x)

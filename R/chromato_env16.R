@@ -11,6 +11,14 @@
 #'
 #' @return chr2 a matrix corresponding to the species chromatogram (alpha categories by p environmental variables)
 #' @export
+#'
+#' @examples
+#' # Load the example datasets
+#' data("data_abundance")
+#' data("environment")
+#' # Characterise and display the ecological niche of a pseudo-species
+#' # `alpha`=50 categories, `m`=1 sample, `k`=5 and `order_smth`=2
+#' sp_chrom_PS1<-chromato_env16(environment,data_abundance[,1],50,1,5,2)
 
 chromato_env16<-function(z,y,alpha,m,k,order_smth){
   n<-dim(z)

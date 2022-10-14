@@ -8,7 +8,6 @@
 #' @param Thres_T an integer corresponding to the threshold of minimal abundance in a category for the niche breadth estimation
 #'
 #' @return index D
-#' @export
 
 niche_difer2<-function(sp_chr1,sp_chr2,Thres_T){
 

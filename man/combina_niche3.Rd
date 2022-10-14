@@ -30,3 +30,17 @@ Function that returns the lowest degree of niche overlapping (index D) among all
 are considered. Also return the degree of niche overlapping (index D) among each couple of species when all the environmental
 variables are considered simultaneously and the lowest degree of niche overlapping (index D) when each environmental variable is considered alone.
 }
+\examples{
+# Load the example datasets
+data("data_abundance")
+data("environment")
+# Characterise and display the ecological niche of 2 pseudo-species
+# `alpha`=50 categories, `m`=1 sample, `k`=5 and `order_smth`=2
+sp_chrom_PS3<-chromato_env16(environment,data_abundance[,3],50,1,5,2)
+sp_chrom_PS8<-chromato_env16(environment,data_abundance[,8],50,1,5,2)
+# Combine the species chromatograms along a third dimension with `abind`
+library(abind)
+test_PS<-abind::abind(sp_chrom_PS3,sp_chrom_PS8,along=3)
+# Apply the function `combina_niche3.R` on the matrix `test_PS` with `Thres_T`=0
+Index_D_PS<-combina_niche3(test_PS,0)
+}

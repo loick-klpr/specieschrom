@@ -73,7 +73,7 @@ library(abind)
 test_PS<-abind::abind(sp_chrom_PS1,sp_chrom_PS3,sp_chrom_PS5,sp_chrom_PS8,along=3)
 ```
 
-The function `opti_eury_niche2.R` can then be applied, with a threshold of abundance `Thres_T`=0 and `k`=5 (as in `chromato_env16.R`:
+The function `opti_eury_niche2.R` can then be applied, with a threshold of abundance `Thres_T`=0 and `k`=5 (as in `chromato_env16.R`):
 ```{r}
 opti_ampli_niche<-opti_eury_niche2(test_PS,0,environment,data_abundance[,c(1,3,5,8)],5)
 
