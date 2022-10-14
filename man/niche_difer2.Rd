@@ -4,14 +4,14 @@
 \alias{niche_difer2}
 \title{Nested function for niche overlapping estimation with 'combina_niche3.R' and 'niche_differ_sp.R'.}
 \usage{
-niche_difer2(sp_chr1, sp_chr2, T)
+niche_difer2(sp_chr1, sp_chr2, Thres_T)
 }
 \arguments{
 \item{sp_chr1}{a matrix (niche categories by environmental variables) for species 1}
 
 \item{sp_chr2}{a matrix (niche categories by environmental variables) for species 2}
 
-\item{T}{an integer corresponding to the threshold of minimal abundance in a category for the niche breadth estimation}
+\item{Thres_T}{an integer corresponding to the threshold of minimal abundance in a category for the niche breadth estimation}
 }
 \value{
 index D

@@ -1,5 +1,5 @@
 Package: specieschrom
-Title: The Species Chromatogram, a New Graphical Method to Represent, Characterise and Compare the Ecological Niches of Different Species
+Title: The Species Chromatogram
 Version: 1.0.0
 Authors@R: c(person("Loick", "Kleparski",
   email = "loick.kleparski@hotmail.fr",
@@ -12,7 +12,7 @@ Authors@R: c(person("Loick", "Kleparski",
   person("Universite Littoral Cote d'Opale (ULCO)",
   role = "cph"))
 Maintainer: Loick Kleparski <loick.kleparski@hotmail.fr>
-Description: R package to display and characterise the multidimensional ecological niche of a species. The method also estimates the optimums and amplitudes along each niche dimension. Give also an estimation of the degree of niche overlapping between species. See Kleparski and Beaugrand 2022 <doi:10.1002/ece3.8830> for further details. 
+Description: A simple method to display and characterise the multidimensional ecological niche of a species. The method also estimates the optimums and amplitudes along each niche dimension. Give also an estimation of the degree of niche overlapping between species. See Kleparski and Beaugrand (2022) <doi:10.1002/ece3.8830> for further details. 
 License: GPL-3
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)

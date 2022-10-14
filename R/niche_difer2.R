@@ -5,26 +5,26 @@
 #'
 #' @param sp_chr1 a matrix (niche categories by environmental variables) for species 1
 #' @param sp_chr2 a matrix (niche categories by environmental variables) for species 2
-#' @param T an integer corresponding to the threshold of minimal abundance in a category for the niche breadth estimation
+#' @param Thres_T an integer corresponding to the threshold of minimal abundance in a category for the niche breadth estimation
 #'
 #' @return index D
 #' @export
 
-niche_difer2<-function(sp_chr1,sp_chr2,T){
+niche_difer2<-function(sp_chr1,sp_chr2,Thres_T){
 
-  if (T==0) {
-    sp_chr1[sp_chr1>T]<-1
-    sp_chr1[sp_chr1<=T]<-0
+  if (Thres_T==0) {
+    sp_chr1[sp_chr1>Thres_T]<-1
+    sp_chr1[sp_chr1<=Thres_T]<-0
 
-    sp_chr2[sp_chr2>T]<-1
-    sp_chr2[sp_chr2<=T]<-0
+    sp_chr2[sp_chr2>Thres_T]<-1
+    sp_chr2[sp_chr2<=Thres_T]<-0
 
   }else{
-    sp_chr1[sp_chr1>=T]<-1
-    sp_chr1[sp_chr1<T]<-0
+    sp_chr1[sp_chr1>=Thres_T]<-1
+    sp_chr1[sp_chr1<Thres_T]<-0
 
-    sp_chr2[sp_chr2>=T]<-1
-    sp_chr2[sp_chr2<T]<-0
+    sp_chr2[sp_chr2>=Thres_T]<-1
+    sp_chr2[sp_chr2<Thres_T]<-0
   }
 
   n<-dim(sp_chr1)

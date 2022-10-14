@@ -3,18 +3,18 @@
 #' @description Function that estimates niche optimums and amplitudes along each environmental variable and for each species.
 #'
 #' @param sp_chr a matrix with the species chromatograms (categories by environmental variables by species). Outputs of 'chromato_env16.R'
-#' @param T an integer corresponding to the min abundance threshold for niche amplitudes estimations
+#' @param Thres_T an integer corresponding to the min abundance threshold for niche amplitudes estimations
 #' @param z a matrix with n samples by p environmental variables (i.e. the value of each environmental variable in each sample). Same matrix as in 'chromato_env16.R'.
 #' @param y a matrix with the species abundance in the n samples
 #' @param k an integer corresponding to the percentage of samples with the highest abundance values to use to estimate the mean abundance in a given category. Should have the same value as in 'chromato_env16.R'
 #'
 #' @return Three matrices are returned:
 #' @return amplitudes, a matrix with the degree of euryoecie (niche breadth) of each species (in column) along each environmental dimension (in line)
-#' @return mean_amplitudes, a matrix with the mean degree of euryecie of each species
+#' @return mean_amplitudes, a matrix with the mean degree of euryoecie of each species
 #' @return optimums, a matrix with the niche optimum values of each species (in column) along each environmental dimension (in line)
 #' @export
 
-opti_eury_niche2<-function(sp_chr,T,z,y,k){
+opti_eury_niche2<-function(sp_chr,Thres_T,z,y,k){
   n<-dim(sp_chr)
   deg_eury=matrix(nrow = n[2],ncol = n[3])
   opti_val=matrix(nrow = n[2],ncol = n[3])
@@ -24,19 +24,19 @@ opti_eury_niche2<-function(sp_chr,T,z,y,k){
     for (i in 1:n[2]) {
       temp<-sp_chr[,i,j]
 
-      if (T==0) {
-        f1<-which(temp>T)
+      if (Thres_T==0) {
+        f1<-which(temp>Thres_T)
       }else{
-        f1<-which(temp>=T)
+        f1<-which(temp>=Thres_T)
       }
 
       temp[f1[1]:f1[length(f1)]]<-1
       f2<-which(!is.na(temp))
 
-      if (T==0) {
-        f3<-which(temp>T)
+      if (Thres_T==0) {
+        f3<-which(temp>Thres_T)
       }else{
-        f3<-which(temp>=T)
+        f3<-which(temp>=Thres_T)
       }
 
       deg_eury[i,j]<-(length(f3)*100)/length(f2)

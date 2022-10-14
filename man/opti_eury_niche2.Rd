@@ -4,12 +4,12 @@
 \alias{opti_eury_niche2}
 \title{Optimums and amplitudes estimations along each niche dimension.}
 \usage{
-opti_eury_niche2(sp_chr, T, z, y, k)
+opti_eury_niche2(sp_chr, Thres_T, z, y, k)
 }
 \arguments{
 \item{sp_chr}{a matrix with the species chromatograms (categories by environmental variables by species). Outputs of 'chromato_env16.R'}
 
-\item{T}{an integer corresponding to the min abundance threshold for niche amplitudes estimations}
+\item{Thres_T}{an integer corresponding to the min abundance threshold for niche amplitudes estimations}
 
 \item{z}{a matrix with n samples by p environmental variables (i.e. the value of each environmental variable in each sample). Same matrix as in 'chromato_env16.R'.}
 
@@ -22,7 +22,7 @@ Three matrices are returned:
 
 amplitudes, a matrix with the degree of euryoecie (niche breadth) of each species (in column) along each environmental dimension (in line)
 
-mean_amplitudes, a matrix with the mean degree of euryecie of each species
+mean_amplitudes, a matrix with the mean degree of euryoecie of each species
 
 optimums, a matrix with the niche optimum values of each species (in column) along each environmental dimension (in line)
 }

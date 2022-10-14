@@ -5,7 +5,7 @@
 #' variables are considered simultaneously and the lowest degree of niche overlapping (index D) when each environmental variable is considered alone.
 #'
 #' @param sp_chr a matrix with the species chromatograms (alpha categories by p-environmental variables by species). Outputs of 'chromato_env16.R'
-#' @param T an integer corresponding to the threshold of minimal abundance in a category for niche breadth estimation
+#' @param Thres_T an integer corresponding to the threshold of minimal abundance in a category for niche breadth estimation
 #'
 #' @return Return a list composed of three matrices:
 #' @return combi_dim, which contains the mean degree of niche overlapping. In combi_dim, the first column displays the number of dimensions
@@ -21,7 +21,7 @@
 #'
 #' @export
 
-combina_niche3<-function(sp_chr,T){
+combina_niche3<-function(sp_chr,Thres_T){
 
   n<-dim(sp_chr)
   v<-(1:n[2])
@@ -47,7 +47,7 @@ combina_niche3<-function(sp_chr,T){
 
     for (j in 1:ntemp[1]) {
       cp<-cp+1
-      y[,,cp]<-niche_difer_sp(sp_chr[,temp[j,],],T)
+      y[,,cp]<-niche_difer_sp(sp_chr[,temp[j,],],Thres_T)
       point[cp]<-i
       point2[cp,1:i]<-temp[j,1:i]
 

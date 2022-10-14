@@ -4,12 +4,12 @@
 \alias{combina_niche3}
 \title{Estimate the degree of niche overlapping among species from their chromatograms.}
 \usage{
-combina_niche3(sp_chr, T)
+combina_niche3(sp_chr, Thres_T)
 }
 \arguments{
 \item{sp_chr}{a matrix with the species chromatograms (alpha categories by p-environmental variables by species). Outputs of 'chromato_env16.R'}
 
-\item{T}{an integer corresponding to the threshold of minimal abundance in a category for niche breadth estimation}
+\item{Thres_T}{an integer corresponding to the threshold of minimal abundance in a category for niche breadth estimation}
 }
 \value{
 Return a list composed of three matrices:
